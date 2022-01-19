@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width initial-scale=1.0'>
+    <!--CSS files-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--bootstrap css-->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.rtl.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>To Do</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col mx-auto col-md-8 mt-3 text-center">
+                <p class="h2">ToDo List</p>
+                <form id="form-input">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="To do Item" aria-label="Todo-item"
+                            id="itemInput" aria-describedby="button-add">
+                        <button class="btn btn-green btn-outline-success" type="submit" id="button-add">Add</button>
+                    </div>
+                </form>
+                <div>
+                    <p id="msg"></p>
+                </div>
+                <div class="list">
+                    <ul id="added-item">
+                        <span id="item-icons">
+                            <a href="#" class="item-done"><i class="fa fa-check-circle-o" style="color:green;"></i></a>
+                            <a href="#" class="item-edit"><i class="fa fa-edit" style="color:rgb(41, 143, 184)"></i></a>
+                            <a href="#" class="item-delete"><i class="fa fa-trash" style="color:red"></i></a>
+                        </span>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--JS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/file.js"></script>
+    <!--bootstrap js-->
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
