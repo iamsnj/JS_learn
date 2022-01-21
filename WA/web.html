@@ -20,9 +20,11 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
         </script>
     <script>
-        let number = document.getElementById('number').value;
         document.getElementById('btn').onclick = function () {
-            location.href = `https://api.whatsapp.com/send?phone=91${number}`;
+            let number = document.getElementById('number').value;
+            // let link = `https://api.whatsapp.com/send?phone=91${number}`;
+            let link = 'https://api.whatsapp.com/send?phone=91'.concat(number);
+            location.href = link;
         }
     </script>
 </body>
