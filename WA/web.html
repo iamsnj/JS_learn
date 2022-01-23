@@ -7,24 +7,56 @@
     <title>Web API</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        #msg {
+            display: none;
+            color: #D8000C;
+            background-color: #FFBABA;
+            padding: 10px;
+            text-align: center;
+            width: 80%;
+            margin: auto;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="input-group mb-3 p-4">
-        <span class="input-group-text" id="basic-addon1">+91</span>
-        <input type="text" class="form-control" placeholder="Phone number" aria-label="number"
-            aria-describedby="basic-addon1" id="number" required>
+    <div class="container">
+        <div class="input-group mb-3 p-4">
+            <span class="input-group-text" id="basic-addon1">+91</span>
+            <input inputmode="tel" type="text" class="form-control" placeholder="Phone number" aria-label="number"
+                aria-describedby="basic-addon1" id="tel-no">
+        </div>
+        <p id="msg"></p>
+        <button type="button" class="btn btn-primary m-4" id="btn">Send</button>
     </div>
-    <button type="button" class="btn btn-primary m-4" id="btn">Send</button>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
         </script>
     <script>
+        let input_number = document.getElementById('tel-no');
+        let msg = document.getElementById('msg');
+
+        input_number.addEventListener('focusin', function () {
+            input_number.style.borderColor = "green";
+            msg.style.display = 'none';
+        });
+
         document.getElementById('btn').onclick = function () {
-            let number = document.getElementById('number').value;
-            // let link = `https://api.whatsapp.com/send?phone=91${number}`;
-            let link = 'https://api.whatsapp.com/send?phone=91'.concat(number);
-            location.href = link;
+            let number = input_number.value;
+            let len = number.length;
+            var nums = /^[0-9]+$/;
+
+            if (number.match(nums) && len == 10) {
+                input_number.style.borderColor = "green";
+                let link = 'https://api.whatsapp.com/send?phone=91'.concat(number);
+                location.href = link;
+            } else {
+                msg.innerHTML = '\u26A0 Invalid Phone Number';
+                msg.style.display = 'block';
+                input_number.style.borderColor = "red";
+
+            }
         }
     </script>
 </body>
