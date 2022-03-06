@@ -1,0 +1,49 @@
+#msg {
+    display: none;
+    color: #D8000C;
+    background-color: #FFBABA;
+    padding: 10px;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+
+.country-data {
+    cursor: pointer;
+}
+
+.country-data:hover, .country-data:active {
+    background-color: rgb(241, 238, 238);
+}
+
+.in {
+    height: 14px;
+    background-position: -2413px 0px;
+}
+
+.flags {
+    height: 15px;
+    box-shadow: 0px 0px 1px 0px #888;
+    background-image: url("flags.png");
+    background-repeat: no-repeat;
+    background-color: #DBDBDB;
+    background-position: 20px 0;
+    background-color: transparent;
+}
+
+.selected-flag {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 6px 0 8px;
+}
+
+flag-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding: 1px;
+}
