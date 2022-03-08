@@ -25,7 +25,7 @@ input_number.addEventListener('focusout', function () {
 });
 
 input_number.addEventListener('input', function () {
-    let number = form['tel-no'].value;
+    let number = form['0'].value;
     let len = number.length;
 
     if (number.match(nums)) {
@@ -42,9 +42,11 @@ input_number.addEventListener('input', function () {
 });
 
 function send() {
-    let number = input_number.value;
+    let number = form['0'].value;
     let len = number.length;
-    let message = form['message'].value;
+    let message = form['1'].value;
+    var x = message.split('\n');
+    message = x.join('%0A');
 
     if (number.match(nums) && len == 10) {
         let link = 'https://api.whatsapp.com/send?phone=91'.concat(number);
