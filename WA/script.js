@@ -1,5 +1,6 @@
 let input_number = document.getElementById('tel-no');
 let msg = document.getElementById('msg');
+let form = document.getElementById('form');
 var nums = /^[0-9]+$/;
 
 function show_error_message() {
@@ -24,7 +25,7 @@ input_number.addEventListener('focusout', function () {
 });
 
 input_number.addEventListener('input', function () {
-    let number = input_number.value;
+    let number = form['tel-no'].value;
     let len = number.length;
 
     if (number.match(nums)) {
@@ -40,13 +41,28 @@ input_number.addEventListener('input', function () {
     make_valid();
 });
 
-document.getElementById('btn').onclick = function () {
+function send() {
     let number = input_number.value;
     let len = number.length;
+    let message = form['message'].value;
+
     if (number.match(nums) && len == 10) {
         let link = 'https://api.whatsapp.com/send?phone=91'.concat(number);
+        if (message != '') {
+            link = link.concat('&text=');
+            link = link.concat(message);
+        }
         location.href = link;
     } else {
         show_error_message();
     }
+}
+
+document.getElementById('btn').onclick = function () {
+    send();
+}
+
+form.onsubmit = function (e) {
+    e.preventDefault();
+    send();
 }
