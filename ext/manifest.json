@@ -1,0 +1,21 @@
+{
+
+  "manifest_version": 2,
+  "name": "Invert",
+  "version": "1.0",
+
+  "description": "Invert color",
+
+  "icons": {
+    "48": "icons/border-48.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://localhost/*"],
+      "js": ["in.js"]
+    }
+  ]
+
+}
+
